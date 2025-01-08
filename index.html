@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb OnOff</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        main{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-direction: column;
+        
+        }
+        
+        .bulb-container{
+            width: 20rem;
+            height: 20rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+        .bulbTop{
+            width:225px;
+            height: 225px;
+            background-color: whitesmoke;
+            border-radius: 100%; 
+            border: 2px solid #000;
+        }
+        .bulbBottom::before{
+            content: " ";
+            width: 100px;
+            height: 60px;
+            background-color: #212121;
+            position: absolute;
+            top:200px;
+            left: 110px;
+            z-index: 1;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+        }
+        .bulbBottom{
+            width: 110px;
+            height: 70px;
+            background-color: #212121;
+            border-radius: 0% 0% 30% 30%;
+        }
+        button{
+            padding: 15px 30px;
+            background-color: beige;
+            color: rgb(160, 69, 160);
+            border: 1px solid #212121;
+            box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+            border-radius: 5%;
+        }
+        
+        .buttons{
+            width: 200px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+    </style>
+</head>
+<body>
+    <main id="main-container">
+        <div class="bulb-container">
+            <div class="bulbTop"></div>
+            <div class="bulbBottom"></div>
+        </div>
+        <div class="buttons">
+            <button type="button" id="On" onclick="Onbulb()">ON</button>
+            <button type="button" id="Off" onclick="Offbulb()">OFF</button>
+        </div>
+    </main>
+</body>
+<script>
+    const bulb = document.querySelector(".bulbTop")
+    const On = document.querySelector("#On")
+    const Off = document.querySelector("#Off")
+    const bg = document.querySelector("#main-container")
+
+    function Onbulb(){
+        bulb.style.backgroundColor = "yellow"
+        bulb.style.filter = "drop-shadow(0.35rem 0.35rem 0.4rem rgba(226, 223, 17, 0.5))"
+        On.style.backgroundColor="cadetblue"
+        Off.style.backgroundColor="beige"
+        bg.style.backgroundColor = "#ffff96"
+    }
+    function Offbulb(){
+        bulb.style.backgroundColor = "white"
+        bulb.style.filter = "none"
+                On.style.backgroundColor="beige"
+        Off.style.backgroundColor="cadetblue"
+        bg.style.backgroundColor = "aliceblue"
+    }
+</script>
+</html>
